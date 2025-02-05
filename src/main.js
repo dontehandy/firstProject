@@ -124,11 +124,20 @@ function createPoster(imageURL, title, quote) {
     quote: quote}
 }
 
-function displayRandomPoster() {
+function displayRandomPoster() { 
+  var randomPoster = createRandomPoster();
+  updatePoster(randomPoster);
+}
+
+function createRandomPoster() {
   var randomImage = images[getRandomIndex(images)];
   var randomTitle = titles[getRandomIndex(titles)];
   var randomQuote = quotes[getRandomIndex(quotes)];
-  currentPoster = createPoster(randomImage, randomTitle, randomQuote);
+  return createPoster(randomImage, randomTitle, randomQuote);
+}
+
+function updatePoster(poster) {
+  currentPoster = poster;
   posterImage.src = currentPoster.imageURL;
   posterTitle.innerText = currentPoster.title;
   posterQuote.innerText = currentPoster.quote;
