@@ -148,19 +148,24 @@ function createCustomPoster(event) {
   // Save the new poster as the current poster
   currentPoster = customPoster;
   // Save the user input data into the respective arrays
-  images.push(posterImageUrlInput.value);
-  titles.push(posterTitleInput.value);
-  quotes.push(posterQuoteInput.value);
+  saveUserInputData(posterImageUrlInput.value, posterTitleInput.value, posterQuoteInput.value);
   // Update the DOM with the new poster and show the main poster section
   updatePoster(customPoster);
   toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection]); // Show the main poster and hide the form
 }
 
+// Save user input data into the respective arrays
+function saveUserInputData(imageURL, title, quote) {
+  images.push(imageURL);
+  titles.push(title);
+  quotes.push(quote);
+}
+
 // Save the current poster to the savedPosters array
 function saveCurrentPoster() {
-  if (!savedPosters.includes(currentPoster)) {
+  if (!savedPosters.includes(currentPoster)) { //using ! will check if the current poster is not already in the savedPosters array
     savedPosters.push(currentPoster);
-    console.log('Poster saved:', currentPoster); // Debug: Log the saved poster //using the ! operator to check if the current poster is not already in the savedPosters array
+    console.log('Poster saved:', currentPoster); // Log the saved poster
     console.log('Saved Posters Array:', savedPosters); // Log the savedPosters array
   }
 }
