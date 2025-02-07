@@ -2,16 +2,16 @@
 const posterImage = document.querySelector('.poster-img'); 
 const posterTitle = document.querySelector('.poster-title');
 const posterQuote = document.querySelector('.poster-quote');
-const randomPosterButton = document.querySelector('.show-random');
-const showFormButton = document.querySelector('.show-form');
-const showSavedButton = document.querySelector('.show-saved');
-const savePosterButton = document.querySelector('.save-poster');
+const showRandomPosterButton = document.querySelector('.show-random');
+const makeYourOwnPosterButton = document.querySelector('.show-form');
+const showSavedPostersButton = document.querySelector('.show-saved');
+const saveThisPosterButton = document.querySelector('.save-poster');
 const backToMainButton = document.querySelector('.back-to-main');
-const nevermindButton = document.querySelector('.show-main');
+const nevermindTakeMeBackButton = document.querySelector('.show-main');
 const mainPosterSection = document.querySelector('.main-poster');
 const posterFormSection = document.querySelector('.poster-form');
 const savedPostersSection = document.querySelector('.saved-posters');
-const makePosterButton = document.querySelector('.make-poster');
+const showMyPosterButton = document.querySelector('.make-poster');
 const posterImageUrlInput = document.querySelector('#poster-image-url');
 const posterTitleInput = document.querySelector('#poster-title');
 const posterQuoteInput = document.querySelector('#poster-quote');
@@ -76,21 +76,21 @@ let currentPoster;
 
 // Event listeners
 window.addEventListener('load', displayRandomPoster); 
-randomPosterButton.addEventListener('click', displayRandomPoster); 
-showFormButton.addEventListener('click', () => {
+showRandomPosterButton.addEventListener('click', displayRandomPoster); 
+makeYourOwnPosterButton.addEventListener('click', () => {
   clearFormInputs();
   toggleVisibility(posterFormSection, [mainPosterSection, savedPostersSection]);
 });
-showSavedButton.addEventListener('click', () => {
+showSavedPostersButton.addEventListener('click', () => {
   displaySavedPosters();
   toggleVisibility(savedPostersSection, [mainPosterSection, posterFormSection]);
 });
-savePosterButton.addEventListener('click', saveCurrentPoster);
-makePosterButton.addEventListener('click', createCustomPoster);
+saveThisPosterButton.addEventListener('click', saveCurrentPoster);
+showMyPosterButton.addEventListener('click', createCustomPoster);
 backToMainButton.addEventListener('click', () => {
   toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection]);
 });
-nevermindButton.addEventListener('click', () => {
+nevermindTakeMeBackButton.addEventListener('click', () => {
   toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection]);
 });
 
@@ -141,8 +141,16 @@ function toggleVisibility(showElement, hideElements) {
 
 // Create a custom poster with user input
 function createCustomPoster(event) {
-  event.preventDefault(); // Prevent the form from submitting - Nothing weird is happing here. 
+  event.preventDefault(); // Prevent the form from submitting
+  // Use the values from the inputs to create a new, unique poster object
   const customPoster = createPoster(posterImageUrlInput.value, posterTitleInput.value, posterQuoteInput.value);
+  // Save the new poster as the current poster
+  currentPoster = customPoster;
+  // Save the user input data into the respective arrays
+  images.push(posterImageUrlInput.value);
+  titles.push(posterTitleInput.value);
+  quotes.push(posterQuoteInput.value);
+  // Update the DOM with the new poster and show the main poster section
   updatePoster(customPoster);
   toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection]); // Show the main poster and hide the form
 }
