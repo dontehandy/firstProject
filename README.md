@@ -45,5 +45,31 @@ ______________________________________________________
 ### Wins + Challenges:
 [//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
 
+### Guide:
+
+#### Iteration 0:
+1. **Display a Random Poster on Page Load**:
+   - When the page loads, users should see a poster with a randomly selected image, title, and quote.
+   - This is achieved by the `displayRandomPoster` function, which is called when the window loads.
+   - The `displayRandomPoster` function creates a random poster using the `createRandomPoster` function and updates the DOM with the new poster's image, title, and quote using the `updatePoster` function.
+
+2. **Show Random Poster Button**:
+   - Every time the user clicks the "Show Random Poster" button, a new random poster is displayed.
+   - This is achieved by adding an event listener to the "Show Random Poster" button that calls the `displayRandomPoster` function.
+
+#### Iteration 1:
+1. **Make Your Own Poster Form**:
+   - When a user clicks the "Make Your Own Poster" button, the form should be displayed, and the main poster should be hidden.
+   - This is achieved by adding an event listener to the "Make Your Own Poster" button that calls the `toggleVisibility` function to show the form and hide the main poster.
+   - The `clearFormInputs` function is also called to ensure the form inputs are cleared each time the form is shown.
+
+2. **Show Saved Posters Section**:
+   - When a user clicks the "Show Saved Posters" button, the saved posters area should be displayed, and the main poster should be hidden.
+   - This is achieved by adding an event listener to the "Show Saved Posters" button that calls the `displaySavedPosters` function to update the saved posters area and the `toggleVisibility` function to show the saved posters section and hide the main poster.
+
+3. **Back to Main and Nevermind Buttons**:
+   - When a user clicks the "Nevermind, take me back!" or "Back to Main" buttons, only the main poster section should be displayed.
+   - This is achieved by adding event listeners to the "Nevermind, take me back!" and "Back to Main" buttons that call the `toggleVisibility` function to show the main poster section and hide the form or saved posters section.
+
 
 

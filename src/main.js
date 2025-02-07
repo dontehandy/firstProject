@@ -1,68 +1,37 @@
-// query selector variables go here 👇
-var posterImage = document.querySelector('.poster-img'); 
-var posterTitle = document.querySelector('.poster-title');
-var posterQuote = document.querySelector('.poster-quote');
-var randomPosterButton = document.querySelector('.show-random');
+// Query selector variables
+const posterImage = document.querySelector('.poster-img'); 
+const posterTitle = document.querySelector('.poster-title');
+const posterQuote = document.querySelector('.poster-quote');
+const randomPosterButton = document.querySelector('.show-random');
+const showFormButton = document.querySelector('.show-form');
+const showSavedButton = document.querySelector('.show-saved');
+const savePosterButton = document.querySelector('.save-poster');
+const backToMainButton = document.querySelector('.back-to-main');
+const nevermindButton = document.querySelector('.show-main');
+const mainPosterSection = document.querySelector('.main-poster');
+const posterFormSection = document.querySelector('.poster-form');
+const savedPostersSection = document.querySelector('.saved-posters');
+const makePosterButton = document.querySelector('.make-poster');
+const posterImageUrlInput = document.querySelector('#poster-image-url');
+const posterTitleInput = document.querySelector('#poster-title');
+const posterQuoteInput = document.querySelector('#poster-quote');
 
-// we've provided you with some data to work with 👇
-var images = [
-  "./assets/bees.jpg",
-  "./assets/bridge.jpg",
-  "./assets/butterfly.jpg",
-  "./assets/cliff.jpg",
-  "./assets/elephant.jpg",
-  "./assets/flock.jpg",
-  "./assets/fox.jpg",
-  "./assets/frog.jpg",
-  "./assets/horse.jpg",
-  "./assets/lion.jpg",
-  "./assets/mountain.jpg",
-  "./assets/pier.jpg",
-  "./assets/puffins.jpg",
-  "./assets/pug.jpg",
-  "./assets/runner.jpg",
-  "./assets/squirrel.jpg",
-  "./assets/tiger.jpg",
-  "./assets/turtle.jpg"
+// Data arrays
+const images = [
+  "./assets/bees.jpg", "./assets/bridge.jpg", "./assets/butterfly.jpg", "./assets/cliff.jpg",
+  "./assets/elephant.jpg", "./assets/flock.jpg", "./assets/fox.jpg", "./assets/frog.jpg",
+  "./assets/horse.jpg", "./assets/lion.jpg", "./assets/mountain.jpg", "./assets/pier.jpg",
+  "./assets/puffins.jpg", "./assets/pug.jpg", "./assets/runner.jpg", "./assets/squirrel.jpg",
+  "./assets/tiger.jpg", "./assets/turtle.jpg"
 ];
-var titles = [
-  "determination",
-  "success",
-  "inspiration",
-  "perspiration",
-  "grit",
-  "empathy",
-  "feelings",
-  "hope",
-  "believe",
-  "try",
-  "conviction",
-  "accomplishment",
-  "achievement",
-  "ambition",
-  "clarity",
-  "challenge",
-  "commitment",
-  "confidence",
-  "action",
-  "courage",
-  "focus",
-  "breathe",
-  "gratitude",
-  "imagination",
-  "kindness",
-  "mindfulness",
-  "knowledge",
-  "opportunity",
-  "passion",
-  "patience",
-  "practice",
-  "smile",
-  "trust",
-  "understanding",
-  "wisdom"
+const titles = [
+  "determination", "success", "inspiration", "perspiration", "grit", "empathy", "feelings",
+  "hope", "believe", "try", "conviction", "accomplishment", "achievement", "ambition",
+  "clarity", "challenge", "commitment", "confidence", "action", "courage", "focus", "breathe",
+  "gratitude", "imagination", "kindness", "mindfulness", "knowledge", "opportunity", "passion",
+  "patience", "practice", "smile", "trust", "understanding", "wisdom"
 ];
-var quotes = [
+const quotes = [
   "Don’t downgrade your dream just to fit your reality, upgrade your conviction to match your destiny.",
   "You are braver than you believe, stronger than you seem and smarter than you think.",
   "You are confined only by the walls you build yourself.",
@@ -102,41 +71,109 @@ var quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
-var savedPosters = [];
-var currentPoster;
+let savedPosters = [];
+let currentPoster;
 
-// event listeners go here 👇
+// Event listeners
 window.addEventListener('load', displayRandomPoster); 
 randomPosterButton.addEventListener('click', displayRandomPoster); 
+showFormButton.addEventListener('click', () => {
+  clearFormInputs();
+  toggleVisibility(posterFormSection, [mainPosterSection, savedPostersSection]);
+});
+showSavedButton.addEventListener('click', () => {
+  displaySavedPosters();
+  toggleVisibility(savedPostersSection, [mainPosterSection, posterFormSection]);
+});
+savePosterButton.addEventListener('click', saveCurrentPoster);
+makePosterButton.addEventListener('click', createCustomPoster);
+backToMainButton.addEventListener('click', () => {
+  toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection]);
+});
+nevermindButton.addEventListener('click', () => {
+  toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection]);
+});
 
-// functions and event handlers go here 👇
+// Functions
+
+// Get a random index from an array
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
+// Create a new poster object
 function createPoster(imageURL, title, quote) {
   return {
     id: Date.now(), 
     imageURL: imageURL, 
     title: title, 
-    quote: quote}
+    quote: quote
+  };
 }
 
+// Display a random poster on page load or when the "Show Another Random Poster" button is clicked
 function displayRandomPoster() {  
-  var randomPoster = createRandomPoster(); 
+  const randomPoster = createRandomPoster(); 
   updatePoster(randomPoster); 
 }
 
+// Create a random poster using random elements from the images, titles, and quotes arrays
 function createRandomPoster() { 
-  var randomImage = images[getRandomIndex(images)]; 
-  var randomTitle = titles[getRandomIndex(titles)];
-  var randomQuote = quotes[getRandomIndex(quotes)];
+  const randomImage = images[getRandomIndex(images)]; 
+  const randomTitle = titles[getRandomIndex(titles)];
+  const randomQuote = quotes[getRandomIndex(quotes)];
   return createPoster(randomImage, randomTitle, randomQuote);
 }
 
+// Update the DOM with the new poster's image, title, and quote
 function updatePoster(poster) { 
   currentPoster = poster; 
   posterImage.src = currentPoster.imageURL; 
   posterTitle.innerText = currentPoster.title; 
   posterQuote.innerText = currentPoster.quote; 
+}
+
+// Toggle visibility of elements
+function toggleVisibility(showElement, hideElements) {
+  showElement.classList.remove('hidden'); // Show the specified element
+  hideElements.forEach(element => element.classList.add('hidden')); // Hide the specified elements
+}
+
+// Create a custom poster with user input
+function createCustomPoster(event) {
+  event.preventDefault(); // Prevent the form from submitting
+  const customPoster = createPoster(posterImageUrlInput.value, posterTitleInput.value, posterQuoteInput.value);
+  updatePoster(customPoster);
+  toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection]); // Show the main poster and hide the form
+}
+
+// Save the current poster to the savedPosters array
+function saveCurrentPoster() {
+  if (!savedPosters.includes(currentPoster)) {
+    savedPosters.push(currentPoster);
+    console.log('Poster saved:', currentPoster); // Debug: Log the saved poster
+  }
+}
+
+// Display saved posters in the saved posters section
+function displaySavedPosters() {
+  const savedPostersGrid = document.querySelector('.saved-posters-grid');
+  savedPostersGrid.innerHTML = ''; // Clear the grid
+  savedPosters.forEach(poster => {
+    const posterElement = document.createElement('div');
+    posterElement.classList.add('mini-poster');
+    posterElement.innerHTML = `
+      <img src="${poster.imageURL}" alt="Poster Image">
+      <h2>${poster.title}</h2>
+      <h4>${poster.quote}</h4>
+    `;
+    savedPostersGrid.appendChild(posterElement);
+  });
+}
+
+// Clear the input fields in the form
+function clearFormInputs() {
+  posterImageUrlInput.value = '';
+  posterTitleInput.value = '';
+  posterQuoteInput.value = '';
 }
