@@ -54,8 +54,8 @@ ______________________________________________________
    - The `displayRandomPoster` function creates a random poster using the `createRandomPoster` function and updates the DOM with the new poster's image, title, and quote using the `updatePoster` function.
 
 2. **Show Random Poster Button**:
-   - Every time the user clicks the "Show Random Poster" button, a new random poster is displayed.
-   - This is achieved by adding an event listener to the "Show Random Poster" button that calls the `displayRandomPoster` function.
+   - Every time the user clicks the "Show Another Random Poster" button, a new random poster is displayed.
+   - This is achieved by adding an event listener to the "Show Another Random Poster" button that calls the `displayRandomPoster` function.
 
 #### Iteration 1:
 1. **Make Your Own Poster Form**:
@@ -71,5 +71,20 @@ ______________________________________________________
    - When a user clicks the "Nevermind, take me back!" or "Back to Main" buttons, only the main poster section should be displayed.
    - This is achieved by adding event listeners to the "Nevermind, take me back!" and "Back to Main" buttons that call the `toggleVisibility` function to show the main poster section and hide the form or saved posters section.
 
+#### Iteration 2:
+
+1. First, use the values from the inputs to create a new, unique poster object and save it as the value of the currentPoster global variable (part of your data model)
+
+2. Save the submitted data into the respective arrays (image URL into the images array, etc - all part of your data model) so that future random posters can use the user-created data
+
+3. Change back to the main poster view (hiding the form view again)
+
+4. Use the new, unique poster object (which should be saved in the currentPoster variable - part of your data model) to display the newly created poster image, title, and quote in the main view on the DOM
 
 
+*** FUNCTIONALITY was already in code. refactored to follow directions above by:
+- Adding comments to explain the logic of the code.
+- Ensuring the `createCustomPoster` function uses the values from the inputs to create a new, unique poster object and saves it as the value of the `currentPoster` global variable.
+- Saving the submitted data into the respective arrays (`images`, `titles`, `quotes`) so that future random posters can use the user-created data.
+- Changing back to the main poster view by calling the `toggleVisibility` function to show the main poster section and hide the form section.
+- Using the new, unique poster object (saved in the `currentPoster` variable) to display the newly created poster image, title, and quote in the main view on the DOM by calling the `updatePoster` function..
