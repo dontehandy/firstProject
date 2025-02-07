@@ -141,7 +141,7 @@ function toggleVisibility(showElement, hideElements) {
 
 // Create a custom poster with user input
 function createCustomPoster(event) {
-  event.preventDefault(); // Prevent the form from submitting
+  event.preventDefault(); // Prevent the form from submitting - Nothing weird is happing here. 
   const customPoster = createPoster(posterImageUrlInput.value, posterTitleInput.value, posterQuoteInput.value);
   updatePoster(customPoster);
   toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection]); // Show the main poster and hide the form
