@@ -87,4 +87,4 @@ ______________________________________________________
 - Ensuring the `createCustomPoster` function uses the values from the inputs to create a new, unique poster object and saves it as the value of the `currentPoster` global variable.
 - Saving the submitted data into the respective arrays (`images`, `titles`, `quotes`) so that future random posters can use the user-created data.
 - Changing back to the main poster view by calling the `toggleVisibility` function to show the main poster section and hide the form section.
-- Using the new, unique poster object (saved in the `currentPoster` variable) to display the newly created poster image, title, and quote in the main view on the DOM by calling the `updatePoster` function.
+- Using the new, unique poster object (saved in the `currentPoster` variable) to display the newly created poster image, title, and quote in the main view on the DOM by calling the `updatePoster` function..
