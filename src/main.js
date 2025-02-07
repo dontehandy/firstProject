@@ -137,6 +137,7 @@ function updatePoster(poster) {
 function toggleVisibility(showElement, hideElements) {
   showElement.classList.remove('hidden'); // Show the specified element
   hideElements.forEach(element => element.classList.add('hidden')); // Hide the specified elements
+  console.log('Toggled visibility:', showElement, hideElements); // Log the visibility toggle
 }
 
 // Create a custom poster with user input
@@ -159,7 +160,8 @@ function createCustomPoster(event) {
 function saveCurrentPoster() {
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.push(currentPoster);
-    console.log('Poster saved:', currentPoster); // Debug: Log the saved poster
+    console.log('Poster saved:', currentPoster); // Debug: Log the saved poster //using the ! operator to check if the current poster is not already in the savedPosters array
+    console.log('Saved Posters Array:', savedPosters); // Log the savedPosters array
   }
 }
 
@@ -177,6 +179,8 @@ function displaySavedPosters() {
     `;
     savedPostersGrid.appendChild(posterElement);
   });
+  console.log('Displayed Saved Posters'); // Log when saved posters are displayed
+  console.log('Saved Posters Array:', savedPosters); // Log the savedPosters array
 }
 
 // Clear the input fields in the form
