@@ -96,6 +96,13 @@ ______________________________________________________
 2. If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
 
 3. When a user clicks the “Show Saved Posters” button, we should see the saved posters section
+
 4. All the posters in the savedPosters array should be displayed as little mini posters in the saved posters grid section (again, no duplicates)
 
 5. Ensure styling, sizes and layouts of the mini posters in the Saved Posters view match the comp photo of that Saved Posters view that is shown in Iteration 1
+
+*** FUNCTIONALITY was already in code. Went through to ensure compliance. 
+
+- Adding logic to the `saveCurrentPoster` function to ensure the current poster is only saved once (no duplicates).
+- Updating the `displaySavedPosters` function to display all posters in the `savedPosters` array as mini posters in the saved posters grid section.
+- Ensuring the styling, sizes, and layouts of the mini posters in the Saved Posters view match the comp photo.

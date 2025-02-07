@@ -159,7 +159,8 @@ function createCustomPoster(event) {
 function saveCurrentPoster() {
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.push(currentPoster);
-    console.log('Poster saved:', currentPoster); // Debug: Log the saved poster
+    console.log('Poster saved:', currentPoster); // Debug: Log the saved poster //using the ! operator to check if the current poster is not already in the savedPosters array
+    console.log('Saved Posters Array:', savedPosters); // Log the savedPosters array
   }
 }
 
@@ -177,6 +178,8 @@ function displaySavedPosters() {
     `;
     savedPostersGrid.appendChild(posterElement);
   });
+  console.log('Displayed Saved Posters'); // Log when saved posters are displayed
+  console.log('Saved Posters Array:', savedPosters); // Log the savedPosters array
 }
 
 // Clear the input fields in the form
