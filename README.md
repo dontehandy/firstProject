@@ -46,16 +46,10 @@ ______________________________________________________
 [//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
 
 
-<!-- 
-NOTE: We are NOT working on the new poster form in this iteration! We’re only changing views with the main page buttons and the back buttons. The new poster form is iteration 2, dont work ahead.
 
-When a user clicks the “Make Your Own Poster” button, we should see the form, and the main poster should be hidden
+
+<!-- When a user clicks the “Make Your Own Poster” button, we should see the form, and the main poster should be hidden
 
 When a user clicks the “Show Saved Posters” button, we should see the saved posters area, and the main poster should be hidden
 
-When a user clicks the “Nevermind, take me back!” or “Back to Main” buttons, we should only see the main poster section
-
-In summary: Be able to switch between the three views (main poster, form, and saved posters) on the correct button clicks
-Hint: We aren’t actually navigating different pages of a website here. Instead, we will fake that navigation by hiding and unhiding entire sections. Go check out the HTML and CSS files to see how the form and saved posters sections are being hidden in the first place.
-
-Consider how you might use arguments/parameters to make dynamic reusable functions to control what is shown/hidden. -->
+When a user clicks the “Nevermind, take me back!” or “Back to Main” buttons, we should only see the main poster section -->
