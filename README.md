@@ -74,35 +74,32 @@ ______________________________________________________
 #### Iteration 2:
 
 1. First, use the values from the inputs to create a new, unique poster object and save it as the value of the currentPoster global variable (part of your data model)
+   - This is achieved by the `createCustomPoster` function, which uses the values from the input fields to create a new poster object using the `createPoster` function and saves it as the value of the `currentPoster` global variable.
 
 2. Save the submitted data into the respective arrays (image URL into the images array, etc - all part of your data model) so that future random posters can use the user-created data
+   - This is achieved within the `createCustomPoster` function by pushing the user input values into the respective arrays (`images`, `titles`, `quotes`).
 
 3. Change back to the main poster view (hiding the form view again)
+   - This is achieved by calling the `toggleVisibility` function within the `createCustomPoster` function to show the main poster section and hide the form section.
 
 4. Use the new, unique poster object (which should be saved in the currentPoster variable - part of your data model) to display the newly created poster image, title, and quote in the main view on the DOM
-
-
-*** FUNCTIONALITY was already in code. refactored to follow directions above by:
-- Adding comments to explain the logic of the code.
-- Ensuring the `createCustomPoster` function uses the values from the inputs to create a new, unique poster object and saves it as the value of the `currentPoster` global variable.
-- Saving the submitted data into the respective arrays (`images`, `titles`, `quotes`) so that future random posters can use the user-created data.
-- Changing back to the main poster view by calling the `toggleVisibility` function to show the main poster section and hide the form section.
-- Using the new, unique poster object (saved in the `currentPoster` variable) to display the newly created poster image, title, and quote in the main view on the DOM by calling the `updatePoster` function.
+   - This is achieved by calling the `updatePoster` function within the `createCustomPoster` function to update the DOM with the new poster's image, title, and quote.
 
 #### Iteration 3:
 
 1. When a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
+   - This is achieved by the `saveCurrentPoster` function, which checks if the `currentPoster` is already in the `savedPosters` array before adding it.
 
 2. If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
+   - This is ensured by using the `includes` method to check if the `currentPoster` is already in the `savedPosters` array before adding it.
 
 3. When a user clicks the “Show Saved Posters” button, we should see the saved posters section
+   - This is achieved by adding an event listener to the "Show Saved Posters" button that calls the `displaySavedPosters` function and the `toggleVisibility` function to show the saved posters section and hide the main poster section.
 
 4. All the posters in the savedPosters array should be displayed as little mini posters in the saved posters grid section (again, no duplicates)
+   - This is achieved by the `displaySavedPosters` function, which clears the saved posters grid and then appends each poster in the `savedPosters` array as a mini poster.
 
 5. Ensure styling, sizes and layouts of the mini posters in the Saved Posters view match the comp photo of that Saved Posters view that is shown in Iteration 1
+   - This is achieved by applying the appropriate CSS styles to the mini posters and the saved posters grid.
 
-*** FUNCTIONALITY was already in code. Went through to ensure compliance. 
-
-- Adding logic to the `saveCurrentPoster` function to ensure the current poster is only saved once (no duplicates).
-- Updating the `displaySavedPosters` function to display all posters in the `savedPosters` array as mini posters in the saved posters grid section.
-- Ensuring the styling, sizes, and layouts of the mini posters in the Saved Posters view match the comp photo.
+   
