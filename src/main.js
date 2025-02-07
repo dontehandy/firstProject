@@ -137,6 +137,7 @@ function updatePoster(poster) {
 function toggleVisibility(showElement, hideElements) {
   showElement.classList.remove('hidden'); // Show the specified element
   hideElements.forEach(element => element.classList.add('hidden')); // Hide the specified elements
+  console.log('Toggled visibility:', showElement, hideElements); // Log the visibility toggle
 }
 
 // Create a custom poster with user input
