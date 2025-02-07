@@ -3,6 +3,14 @@ var posterImage = document.querySelector('.poster-img');
 var posterTitle = document.querySelector('.poster-title');
 var posterQuote = document.querySelector('.poster-quote');
 var randomPosterButton = document.querySelector('.show-random');
+var showFormButton = document.querySelector('.show-form');
+var mainPosterSection = document.querySelector('.main-poster');
+var posterFormSection = document.querySelector('.poster-form');
+var savedPostersSection = document.querySelector('.saved-posters');
+var makePosterButton = document.querySelector('.make-poster');
+var posterImageUrlInput = document.querySelector('#poster-image-url');
+var posterTitleInput = document.querySelector('#poster-title');
+var posterQuoteInput = document.querySelector('#poster-quote');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -108,6 +116,10 @@ var currentPoster;
 // event listeners go here 👇
 window.addEventListener('load', displayRandomPoster); 
 randomPosterButton.addEventListener('click', displayRandomPoster); 
+showFormButton.addEventListener('click', () => {
+  toggleVisibility(posterFormSection, [mainPosterSection, savedPostersSection]);
+});
+makePosterButton.addEventListener('click', createCustomPoster);
 
 // functions and event handlers go here 👇
 function getRandomIndex(array) {
@@ -139,4 +151,16 @@ function updatePoster(poster) {
   posterImage.src = currentPoster.imageURL; 
   posterTitle.innerText = currentPoster.title; 
   posterQuote.innerText = currentPoster.quote; 
+}
+
+function toggleVisibility(showElement, hideElements) {
+  showElement.classList.remove('hidden'); // Show the specified element
+  hideElements.forEach(element => element.classList.add('hidden')); // Hide the specified elements
+}
+
+function createCustomPoster(event) {
+  event.preventDefault(); // Prevent the form from submitting
+  var customPoster = createPoster(posterImageUrlInput.value, posterTitleInput.value, posterQuoteInput.value);
+  updatePoster(customPoster);
+  toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection]); // Show the main poster and hide the form
 }
