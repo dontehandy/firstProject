@@ -87,4 +87,15 @@ ______________________________________________________
 - Ensuring the `createCustomPoster` function uses the values from the inputs to create a new, unique poster object and saves it as the value of the `currentPoster` global variable.
 - Saving the submitted data into the respective arrays (`images`, `titles`, `quotes`) so that future random posters can use the user-created data.
 - Changing back to the main poster view by calling the `toggleVisibility` function to show the main poster section and hide the form section.
-- Using the new, unique poster object (saved in the `currentPoster` variable) to display the newly created poster image, title, and quote in the main view on the DOM by calling the `updatePoster` function..
+- Using the new, unique poster object (saved in the `currentPoster` variable) to display the newly created poster image, title, and quote in the main view on the DOM by calling the `updatePoster` function.
+
+#### Iteration 3:
+
+1. When a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
+
+2. If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
+
+3. When a user clicks the “Show Saved Posters” button, we should see the saved posters section
+4. All the posters in the savedPosters array should be displayed as little mini posters in the saved posters grid section (again, no duplicates)
+
+5. Ensure styling, sizes and layouts of the mini posters in the Saved Posters view match the comp photo of that Saved Posters view that is shown in Iteration 1
