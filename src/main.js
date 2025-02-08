@@ -325,11 +325,11 @@ function displayUnmotivationalPosters() {
     const posterElement = document.createElement('div');
     posterElement.classList.add('mini-poster');
     posterElement.innerHTML = `
-      <img src="${poster.img_url}" alt="Poster Image">
-      <h2>${poster.name}</h2>
-      <h4>${poster.description}</h4>
+      <img src="${poster.imageURL}" alt="Poster Image">
+      <h2>${poster.title}</h2>
+      <h4>${poster.quote}</h4>
     `;
-    posterElement.addEventListener('dblclick', () => deleteUnmotivationalPoster(poster.name)); // Add double-click event listener
+    posterElement.addEventListener('dblclick', () => deleteUnmotivationalPoster(poster.id)); // Add double-click event listener
     unmotivationalPostersGrid.appendChild(posterElement);
   });
   console.log('Displayed Unmotivational Posters'); // Log when unmotivational posters are displayed
@@ -337,10 +337,10 @@ function displayUnmotivationalPosters() {
 }
 
 // Delete an unmotivational poster
-function deleteUnmotivationalPoster(posterName) {
-  unmotivationalPosters = unmotivationalPosters.filter(poster => poster.name !== posterName); // Remove the poster from the array
+function deleteUnmotivationalPoster(posterId) {
+  unmotivationalPosters = unmotivationalPosters.filter(poster => poster.id !== posterId); // Remove the poster from the array
   displayUnmotivationalPosters(); // Update the DOM
-  console.log('Deleted Unmotivational Poster:', posterName); // Log the deleted poster name
+  console.log('Deleted Unmotivational Poster:', posterId); // Log the deleted poster ID
 }
 
 // Clear the input fields in the form
