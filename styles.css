@@ -110,9 +110,10 @@ button:hover {
 }
 
 .saved-posters-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);  /*  this will create 3 columns, 1fr is used to make the columns equal width */
-  grid-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
   padding: 20px;
 }
 
