@@ -120,6 +120,7 @@ ______________________________________________________
     - This is achieved by copying the dataset from the *database* Iteration 4 drop down and pasting it into the `main.js` file after the existing arrays of images, titles, and quotes.
 
 5. Create a cleanData() function to go through each piece of this data and make it match the format we’ve been using for our poster data.
+    - This was accomplished by using the `map` iterator method to transform each unmotivational poster into the format used for our poster data. The `createPoster` function was utilized to ensure consistency in the poster object structure.
 
 -Hint - use the existing createPoster() function to help you accomplish this.
 -Hint - you can reach for a for loop or an iterator method here - several options will work - it’s your choice!
