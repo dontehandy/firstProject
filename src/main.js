@@ -77,6 +77,7 @@ let savedPosters = [];
 let currentPoster;
 let unmotivationalPosters = [
   {
+    id: Date.now(),
     name: "FAILURE",
     description: "Why bother trying? It's probably not worth it.",
     price: 68.00,
@@ -85,6 +86,7 @@ let unmotivationalPosters = [
     img_url: "./assets/failure.jpg",
   },
   {
+    id: Date.now() + 1,
     name: "MEDIOCRITY",
     description: "Dreams are just that—dreams.",
     price: 127.00,
@@ -93,6 +95,7 @@ let unmotivationalPosters = [
     img_url: "./assets/mediocrity.jpg",
   },
   {
+    id: Date.now() + 2,
     name: "REGRET",
     description: "Hard work rarely pays off.",
     price: 89.00,
@@ -101,6 +104,7 @@ let unmotivationalPosters = [
     img_url:  "./assets/regret.jpg",
   },
   {
+    id: Date.now() + 3,
     name: "FUTILITY",
     description: "You're not good enough.",
     price: 150.00,
@@ -109,6 +113,7 @@ let unmotivationalPosters = [
     img_url:  "./assets/futility.jpg",
   },
   {
+    id: Date.now() + 4,
     name: "DEFEAT",
     description: "It's too late to start now.",
     price: 35.00,
@@ -117,6 +122,7 @@ let unmotivationalPosters = [
     img_url:  "./assets/defeat.jpg",
   },
   {
+    id: Date.now() + 5,
     name: "HOPELESSNESS",
     description: "Stay in your comfort zone; it's safer.",
     price: 112.00,
@@ -125,6 +131,7 @@ let unmotivationalPosters = [
     img_url: "./assets/hopelessness.jpg",
   },
   {
+    id: Date.now() + 6,
     name: "LAZINESS",
     description: "You can't change anything.",
     price: 25.00,
@@ -133,6 +140,7 @@ let unmotivationalPosters = [
     img_url: "./assets/laziness.jpg",
   },
   {
+    id: Date.now() + 7,
     name: "PROCRASTINATION",
     description: "Better to avoid failure by not trying at all.",
     price: 48.00,
@@ -141,6 +149,7 @@ let unmotivationalPosters = [
     img_url: "./assets/procrastination.jpg",
   },
   {
+    id: Date.now() + 8,
     name: "DESPAIR",
     description: "Let someone else do it; you’ll just mess it up.",
     price: 73.00,
@@ -149,6 +158,7 @@ let unmotivationalPosters = [
     img_url: "./assets/despair.jpg",
   },
   {
+    id: Date.now() + 9,
     name: "NEGLECT",
     description: "Happiness is overrated.",
     price: 160.00,
@@ -157,6 +167,7 @@ let unmotivationalPosters = [
     img_url: "./assets/neglect.jpg",
   },
   {
+    id: Date.now() + 10,
     name: "FEAR",
     description: "Giving up is always an option.",
     price: 91.00,
@@ -165,6 +176,7 @@ let unmotivationalPosters = [
     img_url: "./assets/fear.jpg",
   },
   {
+    id: Date.now() + 11,
     name: "APATHY",
     description: "No one cares about your effort.",
     price: 110.00,
@@ -173,6 +185,7 @@ let unmotivationalPosters = [
     img_url: "./assets/apathy.jpg",
   },
   {
+    id: Date.now() + 12,
     name: "MISERY",
     description: "Why take risks when you can stay stagnant?",
     price: 55.00,
@@ -181,6 +194,7 @@ let unmotivationalPosters = [
     img_url: "./assets/misery.jpg",
   },
   {
+    id: Date.now() + 13,
     name: "BLAME",
     description: "Expect disappointment and you'll never be disappointed.",
     price: 39.00,
@@ -189,6 +203,7 @@ let unmotivationalPosters = [
     img_url: "./assets/blame.jpg",
   },
   {
+    id: Date.now() + 14,
     name: "DOUBT",
     description: "Success is for other people, not you.",
     price: 140.00,
@@ -342,6 +357,7 @@ function deleteUnmotivationalPoster(event, posterId) {
   unmotivationalPosters = unmotivationalPosters.filter(poster => poster.id !== posterId); // Remove the poster from the array
   displayUnmotivationalPosters(); // Update the DOM
   console.log('Deleted Unmotivational Poster:', posterId); // Log the deleted poster ID
+  console.log('Updated Unmotivational Posters Array:', unmotivationalPosters); // Log the updated unmotivationalPosters array
 }
 
 // Clear the input fields in the form
