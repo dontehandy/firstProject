@@ -164,6 +164,8 @@ button:hover {
   height: 340px;
   padding: 25px;
   width: 425px;
+  background: grey; /* Grey padding */
+  border-radius: 10px; /* Rounded edges */
 }
 
 .unmotivational-posters .mini-poster img {
@@ -173,7 +175,6 @@ button:hover {
 
 .unmotivational-posters .mini-poster h2,
 .unmotivational-posters .mini-poster h4 {
-  color: white;
   line-height: 1;
   width: 90%;
 }
@@ -184,4 +185,5 @@ button:hover {
   letter-spacing: 5px;
   margin-bottom: 10px;
   text-transform: uppercase;
+  color: black; /* Black text color */
 }
