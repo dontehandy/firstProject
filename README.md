@@ -131,9 +131,9 @@ ______________________________________________________
 #### Iteration 5:
 
 
-Add functionality so that users will be able to delete an unmotivational poster by double clicking on it.
+**Add functionality so that users will be able to delete an unmotivational poster by double clicking on it.**
 
-From the unmotivational posters view, if a user double clicks a poster, it will be deleted
+1. From the unmotivational posters view, if a user double clicks a poster, it will be deleted
 
 -Users should be able to double click anywhere on the poster to delete it - on the image, text or background.
 
