@@ -131,14 +131,24 @@ ______________________________________________________
 #### Iteration 5:
 
 
-Add functionality so that users will be able to delete an unmotivational poster by double clicking on it.
+**Add functionality so that users will be able to delete an unmotivational poster by double clicking on it.**
 
-From the unmotivational posters view, if a user double clicks a poster, it will be deleted
+1. From the unmotivational posters view, if a user double clicks a poster, it will be deleted
 
--Users should be able to double click anywhere on the poster to delete it - on the image, text or background.
+   - This was achieved by adding an event listener to each poster element in the `displayUnmotivationalPosters` function that calls the `deleteUnmotivationalPoster` function when the poster is double-clicked.
 
--HTML onclick attributes should not be used in any HTML code - all functionality should be through JavaScript.
+2. Users should be able to double click anywhere on the poster to delete it - on the image, text or background.
 
--The poster should be removed from your cleaned unmotivational posters data set and should no longer be displayed on the DOM.
+   - This was achieved by adding the event listener to the entire poster element, ensuring that any part of the poster can be double-clicked to trigger the deletion.
 
--If the user navigates away from the Unmotivational Posters view after deleting some posters, those posters should still be gone when they navigate back to that view. Note: However, because we aren’t implementing local storage, if a user refreshes the app, everything will be reset including deleted unmotivational posters and saved motivational posters. That’s ok.
+3. HTML onclick attributes should not be used in any HTML code - all functionality should be through JavaScript.
+
+   - This was achieved by using JavaScript to add event listeners to the poster elements instead of using HTML `onclick` attributes.
+
+4. The poster should be removed from your cleaned unmotivational posters data set and should no longer be displayed on the DOM.
+
+   - This was achieved by filtering out the deleted poster from the `unmotivationalPosters` array in the `deleteUnmotivationalPoster` function and then calling the `displayUnmotivationalPosters` function to update the DOM.
+
+5. If the user navigates away from the Unmotivational Posters view after deleting some posters, those posters should still be gone when they navigate back to that view.
+
+   - This was achieved by ensuring that the `unmotivationalPosters` array is updated and maintained in its current state, even when the user navigates away from and back to the Unmotivational Posters view.

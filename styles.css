@@ -144,3 +144,17 @@ button:hover {
   margin-bottom: 10px;
   text-transform: uppercase;
 }
+
+/* ~~~~~ UNMOTIVATIONAL POSTER SECTION ~~~~~ */
+.unmotivational-posters {
+  padding: 40px;
+}
+
+.unmotivational-posters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /*  this will create 3 columns, 1fr is used to make the columns equal width */
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+/* Reuse the same styles for mini-poster */
