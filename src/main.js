@@ -329,7 +329,7 @@ function displayUnmotivationalPosters() {
       <h2>${poster.title}</h2>
       <h4>${poster.quote}</h4>
     `;
-    posterElement.addEventListener('dblclick', () => deleteUnmotivationalPoster(poster.id)); // Add double-click event listener
+    posterElement.addEventListener('dblclick', (event) => deleteUnmotivationalPoster(event, poster.id)); // Add double-click event listener
     unmotivationalPostersGrid.appendChild(posterElement);
   });
   console.log('Displayed Unmotivational Posters'); // Log when unmotivational posters are displayed
@@ -337,7 +337,8 @@ function displayUnmotivationalPosters() {
 }
 
 // Delete an unmotivational poster
-function deleteUnmotivationalPoster(posterId) {
+function deleteUnmotivationalPoster(event, posterId) {
+  event.stopPropagation(); // Prevent the event from bubbling up
   unmotivationalPosters = unmotivationalPosters.filter(poster => poster.id !== posterId); // Remove the poster from the array
   displayUnmotivationalPosters(); // Update the DOM
   console.log('Deleted Unmotivational Poster:', posterId); // Log the deleted poster ID
