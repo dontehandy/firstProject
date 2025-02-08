@@ -116,3 +116,17 @@ ______________________________________________________
 3. When a user clicks the “Back to Main” button, we should see the main poster view and the unmotivational posters view should be hidden.
    - This is achieved by adding an event listener to the "Back to Main" button that calls the `toggleVisibility` function to show the main poster section and hide the Unmotivational Posters section.
 
+#### Iteration 5:
+
+
+Add functionality so that users will be able to delete an unmotivational poster by double clicking on it.
+
+From the unmotivational posters view, if a user double clicks a poster, it will be deleted
+
+-Users should be able to double click anywhere on the poster to delete it - on the image, text or background.
+
+-HTML onclick attributes should not be used in any HTML code - all functionality should be through JavaScript.
+
+-The poster should be removed from your cleaned unmotivational posters data set and should no longer be displayed on the DOM.
+
+-If the user navigates away from the Unmotivational Posters view after deleting some posters, those posters should still be gone when they navigate back to that view. Note: However, because we aren’t implementing local storage, if a user refreshes the app, everything will be reset including deleted unmotivational posters and saved motivational posters. That’s ok.
