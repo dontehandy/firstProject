@@ -116,3 +116,29 @@ ______________________________________________________
 3. When a user clicks the “Back to Main” button, we should see the main poster view and the unmotivational posters view should be hidden.
    - This is achieved by adding an event listener to the "Back to Main" button that calls the `toggleVisibility` function to show the main poster section and hide the Unmotivational Posters section.
 
+4. Copy/paste the dataset into your main.js file after the existing arrays of images, titles and quotes.
+    - This is achieved by copying the dataset from the *database* Iteration 4 drop down and pasting it into the `main.js` file after the existing arrays of images, titles, and quotes.
+
+5. Create a cleanData() function to go through each piece of this data and make it match the format we’ve been using for our poster data.
+    - This was accomplished by using the `map` iterator method to transform each unmotivational poster into the format used for our poster data. The `createPoster` function was utilized to ensure consistency in the poster object structure.
+
+-Hint - use the existing createPoster() function to help you accomplish this.
+-Hint - you can reach for a for loop or an iterator method here - several options will work - it’s your choice!
+
+6. When a user visits the Unmotivational Posters view, we should see all 15 unmotivational posters displayed immediately. Use the cleaned data for this.
+   - This was accomplished by calling the `displayUnmotivationalPosters` function after cleaning the data with the `cleanData` function when the "Unmotivational Posters" button is clicked.
+
+#### Iteration 5:
+
+
+Add functionality so that users will be able to delete an unmotivational poster by double clicking on it.
+
+From the unmotivational posters view, if a user double clicks a poster, it will be deleted
+
+-Users should be able to double click anywhere on the poster to delete it - on the image, text or background.
+
+-HTML onclick attributes should not be used in any HTML code - all functionality should be through JavaScript.
+
+-The poster should be removed from your cleaned unmotivational posters data set and should no longer be displayed on the DOM.
+
+-If the user navigates away from the Unmotivational Posters view after deleting some posters, those posters should still be gone when they navigate back to that view. Note: However, because we aren’t implementing local storage, if a user refreshes the app, everything will be reset including deleted unmotivational posters and saved motivational posters. That’s ok.
