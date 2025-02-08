@@ -102,4 +102,17 @@ ______________________________________________________
 5. Ensure styling, sizes and layouts of the mini posters in the Saved Posters view match the comp photo of that Saved Posters view that is shown in Iteration 1
    - This is achieved by applying the appropriate CSS styles to the mini posters and the saved posters grid.
 
-   
+#### Iteration 4:
+
+1. On the main view, a user should see a newly added “Unmotivational Posters” button located after the existing buttons.
+   - This is achieved by adding a new button element with the class `show-unmotivational` in the HTML file after the existing buttons in the main view..
+
+2. When a user clicks the “Unmotivational Posters” button, we should see a newly created Unmotivational Posters HTML section with:
+   - a title of “Unmotivational Posters”: this is achieved by adding an h2 element with the text “Unmotivational Posters” to the Unmotivational Posters section.
+   - a div that will eventually hold the displayed posters (not actually a visible part of the page until posters are displayed): this is achieved by adding a div element with the class `unmotivational-posters-grid` to the Unmotivational Posters section.
+   - a “Back to Main” button: this is achieved by adding a button element with the class `back-to-main` and the text “Back to Main” to the Unmotivational Posters section.
+   - The main poster view should be hidden when viewing the Unmotivational Posters view: this is achieved by adding the class `hidden` to the main poster section when the Unmotivational Posters section is shown.
+
+3. When a user clicks the “Back to Main” button, we should see the main poster view and the unmotivational posters view should be hidden.
+   - This is achieved by adding an event listener to the "Back to Main" button that calls the `toggleVisibility` function to show the main poster section and hide the Unmotivational Posters section.
+
