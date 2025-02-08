@@ -126,6 +126,7 @@ ______________________________________________________
 -Hint - you can reach for a for loop or an iterator method here - several options will work - it’s your choice!
 
 6. When a user visits the Unmotivational Posters view, we should see all 15 unmotivational posters displayed immediately. Use the cleaned data for this.
+   - This was accomplished by calling the `displayUnmotivationalPosters` function after cleaning the data with the `cleanData` function when the "Unmotivational Posters" button is clicked.
 
 #### Iteration 5:
 
