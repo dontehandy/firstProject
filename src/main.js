@@ -6,7 +6,7 @@ const showRandomPosterButton = document.querySelector('.show-random');
 const makeYourOwnPosterButton = document.querySelector('.show-form');
 const showSavedPostersButton = document.querySelector('.show-saved');
 const saveThisPosterButton = document.querySelector('.save-poster');
-const backToMainButton = document.querySelectorAll('.back-to-main'); // Updated to select all back-to-main buttons
+const backToMainButtons = document.querySelectorAll('.back-to-main'); // Updated to select all back-to-main buttons
 const nevermindTakeMeBackButton = document.querySelector('.show-main');
 const showUnmotivationalButton = document.querySelector('.show-unmotivational'); // New button selector
 const mainPosterSection = document.querySelector('.main-poster');
@@ -211,7 +211,7 @@ showSavedPostersButton.addEventListener('click', () => {
 });
 saveThisPosterButton.addEventListener('click', saveCurrentPoster);
 showMyPosterButton.addEventListener('click', createCustomPoster);
-backToMainButton.forEach(button => button.addEventListener('click', () => {
+backToMainButtons.forEach(button => button.addEventListener('click', () => {
   toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection, unmotivationalPostersSection]);
 }));
 nevermindTakeMeBackButton.addEventListener('click', () => {
@@ -292,7 +292,7 @@ function saveUserInputData(imageURL, title, quote) {
 
 // Save the current poster to the savedPosters array
 function saveCurrentPoster() {
-  if (!savedPosters.includes(currentPoster)) { //using ! will check if the current poster is not already in the savedPosters array
+  if (!savedPosters.includes(currentPoster)) { // Check if the current poster is not already in the savedPosters array
     savedPosters.push(currentPoster);
     console.log('Poster saved:', currentPoster); // Log the saved poster
     console.log('Saved Posters Array:', savedPosters); // Log the savedPosters array
