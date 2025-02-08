@@ -80,135 +80,90 @@ let unmotivationalPosters = [
     id: Date.now(),
     name: "FAILURE",
     description: "Why bother trying? It's probably not worth it.",
-    price: 68.00,
-    year: 2019,
-    vintage: true,
     img_url: "./assets/failure.jpg",
   },
   {
     id: Date.now() + 1,
     name: "MEDIOCRITY",
     description: "Dreams are just that—dreams.",
-    price: 127.00,
-    year: 2021,
-    vintage: false,
     img_url: "./assets/mediocrity.jpg",
   },
   {
     id: Date.now() + 2,
     name: "REGRET",
     description: "Hard work rarely pays off.",
-    price: 89.00,
-    year: 2018,
-    vintage: true,
     img_url:  "./assets/regret.jpg",
   },
   {
     id: Date.now() + 3,
     name: "FUTILITY",
     description: "You're not good enough.",
-    price: 150.00,
-    year: 2016,
-    vintage: false,
     img_url:  "./assets/futility.jpg",
   },
   {
     id: Date.now() + 4,
     name: "DEFEAT",
     description: "It's too late to start now.",
-    price: 35.00,
-    year: 2023,
-    vintage: false,
     img_url:  "./assets/defeat.jpg",
   },
   {
     id: Date.now() + 5,
     name: "HOPELESSNESS",
     description: "Stay in your comfort zone; it's safer.",
-    price: 112.00,
-    year: 2020,
-    vintage: true,
     img_url: "./assets/hopelessness.jpg",
   },
   {
     id: Date.now() + 6,
     name: "LAZINESS",
     description: "You can't change anything.",
-    price: 25.00,
-    year: 2022,
-    vintage: false,
     img_url: "./assets/laziness.jpg",
   },
   {
     id: Date.now() + 7,
     name: "PROCRASTINATION",
     description: "Better to avoid failure by not trying at all.",
-    price: 48.00,
-    year: 2017,
-    vintage: true,
     img_url: "./assets/procrastination.jpg",
   },
   {
     id: Date.now() + 8,
     name: "DESPAIR",
     description: "Let someone else do it; you’ll just mess it up.",
-    price: 73.00,
-    year: 2015,
-    vintage: false,
     img_url: "./assets/despair.jpg",
   },
   {
     id: Date.now() + 9,
     name: "NEGLECT",
     description: "Happiness is overrated.",
-    price: 160.00,
-    year: 2019,
-    vintage: true,
     img_url: "./assets/neglect.jpg",
   },
   {
     id: Date.now() + 10,
     name: "FEAR",
     description: "Giving up is always an option.",
-    price: 91.00,
-    year: 2014,
-    vintage: false,
     img_url: "./assets/fear.jpg",
   },
   {
     id: Date.now() + 11,
     name: "APATHY",
     description: "No one cares about your effort.",
-    price: 110.00,
-    year: 2016,
-    vintage: true,
     img_url: "./assets/apathy.jpg",
   },
   {
     id: Date.now() + 12,
     name: "MISERY",
     description: "Why take risks when you can stay stagnant?",
-    price: 55.00,
-    year: 2021,
-    vintage: false,
     img_url: "./assets/misery.jpg",
   },
   {
     id: Date.now() + 13,
     name: "BLAME",
     description: "Expect disappointment and you'll never be disappointed.",
-    price: 39.00,
-    year: 2017,
-    vintage: true,
     img_url: "./assets/blame.jpg",
   },
   {
     id: Date.now() + 14,
     name: "DOUBT",
     description: "Success is for other people, not you.",
-    price: 140.00,
-    year: 2020,
-    vintage: false,
     img_url: "./assets/doubt.jpg",
   }
 ];
@@ -340,9 +295,9 @@ function displayUnmotivationalPosters() {
     const posterElement = document.createElement('div');
     posterElement.classList.add('mini-poster');
     posterElement.innerHTML = `
-      <img src="${poster.imageURL}" alt="Poster Image">
-      <h2>${poster.title}</h2>
-      <h4>${poster.quote}</h4>
+      <img src="${poster.img_url}" alt="Poster Image">
+      <h2>${poster.name}</h2>
+      <h4>${poster.description}</h4>
     `;
     posterElement.addEventListener('dblclick', (event) => deleteUnmotivationalPoster(event, poster.id)); // Add double-click event listener
     unmotivationalPostersGrid.appendChild(posterElement);
@@ -370,6 +325,11 @@ function clearFormInputs() {
 // Clean data to match the format used for poster data
 function cleanData() {
   // Using the map iterator method to clean the data
-  unmotivationalPosters = unmotivationalPosters.map(poster => createPoster(poster.img_url, poster.name, poster.description));
+  unmotivationalPosters = unmotivationalPosters.map(poster => ({
+    id: poster.id,
+    img_url: poster.img_url,
+    name: poster.name,
+    description: poster.description
+  }));
   console.log('Cleaned Unmotivational Posters Data:', unmotivationalPosters); // Log the cleaned data
 }
