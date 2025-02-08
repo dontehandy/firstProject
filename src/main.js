@@ -218,6 +218,7 @@ nevermindTakeMeBackButton.addEventListener('click', () => {
   toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection, unmotivationalPostersSection]);
 });
 showUnmotivationalButton.addEventListener('click', () => {
+  cleanData();
   displayUnmotivationalPosters();
   toggleVisibility(unmotivationalPostersSection, [mainPosterSection, posterFormSection, savedPostersSection]);
 });
@@ -347,4 +348,11 @@ function clearFormInputs() {
   posterImageUrlInput.value = '';
   posterTitleInput.value = '';
   posterQuoteInput.value = '';
+}
+
+// Clean data to match the format used for poster data
+function cleanData() {
+  // Using the map iterator method to clean the data
+  unmotivationalPosters = unmotivationalPosters.map(poster => createPoster(poster.img_url, poster.name, poster.description));
+  console.log('Cleaned Unmotivational Posters Data:', unmotivationalPosters); // Log the cleaned data
 }
