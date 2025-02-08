@@ -152,3 +152,22 @@ ______________________________________________________
 5. If the user navigates away from the Unmotivational Posters view after deleting some posters, those posters should still be gone when they navigate back to that view.
 
    - This was achieved by ensuring that the `unmotivationalPosters` array is updated and maintained in its current state, even when the user navigates away from and back to the Unmotivational Posters view.
+
+
+#### Iteration 6:
+
+
+1. Styling UPDATES:
+
+   -Using CSS, make the styling/format of the new “Unmotivational Posters” button (on the main page) and the “Back to Main” button (on the Unmotivational Posters page) match the other buttons throughout the app.
+
+      - This was achieved by applying the same styles used for other buttons in the app to the new “Unmotivational Posters” button and the “Back to Main” button, ensuring consistency in appearance.
+
+   -Using CSS flexbox (not grid), control the layout of the unmotivational posters to match the comp provided here. Note: the number of posters you see in each row will flex based on the width of the screen, thats a good thing!
+
+      - This was achieved by using CSS flexbox to create a responsive layout for the unmotivational posters, allowing the number of posters per row to adjust based on the screen width.
+
+   -Using CSS, make the style and size of the unmotivational posters match the comp provided here. You’ll notice they should look slightly different than the saved posters.
+
+      - This was achieved by updating the CSS to apply grey padding, rounded edges, and black text color for the unmotivational posters, differentiating them from the saved posters.
+
