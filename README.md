@@ -116,6 +116,15 @@ ______________________________________________________
 3. When a user clicks the “Back to Main” button, we should see the main poster view and the unmotivational posters view should be hidden.
    - This is achieved by adding an event listener to the "Back to Main" button that calls the `toggleVisibility` function to show the main poster section and hide the Unmotivational Posters section.
 
+4. Copy/paste the dataset into your main.js file after the existing arrays of images, titles and quotes.
+    - This is achieved by copying the dataset from the *database* Iteration 4 drop down and pasting it into the `main.js` file after the existing arrays of images, titles, and quotes.
+
+5. Create a cleanData() function to go through each piece of this data and make it match the format we’ve been using for our poster data.
+-Hint - use the existing createPoster() function to help you accomplish this.
+-Hint - you can reach for a for loop or an iterator method here - several options will work - it’s your choice!
+
+6. When a user visits the Unmotivational Posters view, we should see all 15 unmotivational posters displayed immediately. Use the cleaned data for this.
+
 #### Iteration 5:
 
 
