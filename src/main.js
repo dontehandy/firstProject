@@ -6,11 +6,13 @@ const showRandomPosterButton = document.querySelector('.show-random');
 const makeYourOwnPosterButton = document.querySelector('.show-form');
 const showSavedPostersButton = document.querySelector('.show-saved');
 const saveThisPosterButton = document.querySelector('.save-poster');
-const backToMainButton = document.querySelector('.back-to-main');
+const backToMainButton = document.querySelectorAll('.back-to-main'); // Updated to select all back-to-main buttons
 const nevermindTakeMeBackButton = document.querySelector('.show-main');
+const showUnmotivationalButton = document.querySelector('.show-unmotivational'); // New button selector
 const mainPosterSection = document.querySelector('.main-poster');
 const posterFormSection = document.querySelector('.poster-form');
 const savedPostersSection = document.querySelector('.saved-posters');
+const unmotivationalPostersSection = document.querySelector('.unmotivational-posters'); // New section selector
 const showMyPosterButton = document.querySelector('.make-poster');
 const posterImageUrlInput = document.querySelector('#poster-image-url');
 const posterTitleInput = document.querySelector('#poster-title');
@@ -79,19 +81,22 @@ window.addEventListener('load', displayRandomPoster);
 showRandomPosterButton.addEventListener('click', displayRandomPoster); 
 makeYourOwnPosterButton.addEventListener('click', () => {
   clearFormInputs();
-  toggleVisibility(posterFormSection, [mainPosterSection, savedPostersSection]);
+  toggleVisibility(posterFormSection, [mainPosterSection, savedPostersSection, unmotivationalPostersSection]);
 });
 showSavedPostersButton.addEventListener('click', () => {
   displaySavedPosters();
-  toggleVisibility(savedPostersSection, [mainPosterSection, posterFormSection]);
+  toggleVisibility(savedPostersSection, [mainPosterSection, posterFormSection, unmotivationalPostersSection]);
 });
 saveThisPosterButton.addEventListener('click', saveCurrentPoster);
 showMyPosterButton.addEventListener('click', createCustomPoster);
-backToMainButton.addEventListener('click', () => {
-  toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection]);
-});
+backToMainButton.forEach(button => button.addEventListener('click', () => {
+  toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection, unmotivationalPostersSection]);
+}));
 nevermindTakeMeBackButton.addEventListener('click', () => {
-  toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection]);
+  toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection, unmotivationalPostersSection]);
+});
+showUnmotivationalButton.addEventListener('click', () => {
+  toggleVisibility(unmotivationalPostersSection, [mainPosterSection, posterFormSection, savedPostersSection]);
 });
 
 // Functions
@@ -151,7 +156,7 @@ function createCustomPoster(event) {
   saveUserInputData(posterImageUrlInput.value, posterTitleInput.value, posterQuoteInput.value);
   // Update the DOM with the new poster and show the main poster section
   updatePoster(customPoster);
-  toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection]); // Show the main poster and hide the form
+  toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection, unmotivationalPostersSection]); // Show the main poster and hide the form
 }
 
 // Save user input data into the respective arrays

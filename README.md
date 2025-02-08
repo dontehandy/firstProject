@@ -106,14 +106,12 @@ ______________________________________________________
 
 1. On the main view, a user should see a newly added “Unmotivational Posters” button located after the existing buttons.
    - This is achieved by adding a new button element with the class `show-unmotivational` in the HTML file after the existing buttons in the main view.
-2. When a user clicks the “Unmotivational Posters” button, we should see an newly created Unmotivational Posters html section with:
 
--a title of “Unmotivational Posters”
+2. When a user clicks the “Unmotivational Posters” button, we should see a newly created Unmotivational Posters HTML section with:
+   - a title of “Unmotivational Posters”
+   - a div that will eventually hold the displayed posters (not actually a visible part of the page until posters are displayed)
+   - a “Back to Main” button
+   - The main poster view should be hidden when viewing the Unmotivational Posters view
 
--a div that will eventually hold the displayed posters (not actually a visible part of the page until posters are displayed)
-a “Back to Main” button
-
--The main poster view should be hidden when viewing the Unmotivational Posters view
-
-3. When a user clicks the “Back to Main” button, we should see the main poster view and the unmotivational posters view should be hidden.
+3.
 
