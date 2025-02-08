@@ -105,7 +105,7 @@ ______________________________________________________
 #### Iteration 4:
 
 1. On the main view, a user should see a newly added “Unmotivational Posters” button located after the existing buttons.
-   - This is achieved by adding a new button element with the class `show-unmotivational` in the HTML file after the existing buttons in the main view.
+   - This is achieved by adding a new button element with the class `show-unmotivational` in the HTML file after the existing buttons in the main view..
 
 2. When a user clicks the “Unmotivational Posters” button, we should see a newly created Unmotivational Posters HTML section with:
    - a title of “Unmotivational Posters”: this is achieved by adding an h2 element with the text “Unmotivational Posters” to the Unmotivational Posters section.
