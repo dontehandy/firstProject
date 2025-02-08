@@ -151,10 +151,37 @@ button:hover {
 }
 
 .unmotivational-posters-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);  /*  this will create 3 columns, 1fr is used to make the columns equal width */
-  grid-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
   padding: 20px;
 }
 
-/* Reuse the same styles for mini-poster */
+.unmotivational-posters .mini-poster {
+  background: black;
+  color: white;
+  height: 340px;
+  padding: 25px;
+  width: 425px;
+}
+
+.unmotivational-posters .mini-poster img {
+  height: 200px;
+  width: 300px;
+}
+
+.unmotivational-posters .mini-poster h2,
+.unmotivational-posters .mini-poster h4 {
+  color: white;
+  line-height: 1;
+  width: 90%;
+}
+
+.unmotivational-posters .mini-poster h2 {
+  font-size: 30px;
+  font-weight: normal;
+  letter-spacing: 5px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
