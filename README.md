@@ -1,27 +1,3 @@
-# Hang In There
-
-A boilerplate repo. 
-
-## Set Up
-
-1. Fork this repository
-2. Clone down your new, forked repo
-3. `cd` into the repository
-4. Open it in your text editor
-5. Add the instructors as collaborators on the repository
-
-Project spec & rubric can be found [here](https://curriculum.turing.edu/module2/projects/hang_in_there/)
-
-To view your project:
-
-1. In your terminal, navigate to your project repo
-2. Run the command `open index.html`
-  
-______________________________________________________  
-# README Template  
-Before turning this project in, erase this line and everything above it and fill in the info below.  
-______________________________________________________  
-
 # Hang in There  
 
 ### Abstract:
