@@ -1,7 +1,7 @@
 // Query selector variables
-const posterImage = document.querySelector('.poster-img'); 
-const posterTitle = document.querySelector('.poster-title');
-const posterQuote = document.querySelector('.poster-quote');
+const posterImage = document.querySelector('.poster-img'); // posterImage is a query selector variable that selects the image element in the HTML
+const posterTitle = document.querySelector('.poster-title'); // posterTitle is a query selector variable that selects the title element in the HTML
+const posterQuote = document.querySelector('.poster-quote'); // posterQuote is a query selector variable that selects the quote element in the HTML
 const showRandomPosterButton = document.querySelector('.show-random');
 const makeYourOwnPosterButton = document.querySelector('.show-form');
 const showSavedPostersButton = document.querySelector('.show-saved');
@@ -73,8 +73,8 @@ const quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
-let savedPosters = [];
-let currentPoster;
+let savedPosters = []; //array to store saved posters
+let currentPoster; //global variable to store the current poster
 let unmotivationalPosters = [
   {
     id: Date.now(),
@@ -169,10 +169,10 @@ let unmotivationalPosters = [
 ];
 
 // Event listeners
-window.addEventListener('load', displayRandomPoster); 
+window.addEventListener('load', displayRandomPoster); // Display a random poster on page load
 showRandomPosterButton.addEventListener('click', displayRandomPoster); 
 makeYourOwnPosterButton.addEventListener('click', () => {
-  clearFormInputs();
+  clearFormInputs(); // function to clear the input fields in the form
   toggleVisibility(posterFormSection, [mainPosterSection, savedPostersSection, unmotivationalPostersSection]);
 });
 showSavedPostersButton.addEventListener('click', () => {
@@ -182,6 +182,9 @@ showSavedPostersButton.addEventListener('click', () => {
 saveThisPosterButton.addEventListener('click', saveCurrentPoster);
 showMyPosterButton.addEventListener('click', createCustomPoster);
 backToMainButtons.forEach(button => button.addEventListener('click', () => {
+  //used forEach to iterate over each button in the array
+  //added an event listener to each button in the array
+  //when the button is clicked, the main poster section will be shown and the other sections will be hidden
   toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection, unmotivationalPostersSection]);
 }));
 nevermindTakeMeBackButton.addEventListener('click', () => {
@@ -195,9 +198,13 @@ showUnmotivationalButton.addEventListener('click', () => {
 
 // Functions
 
-// Get a random index from an array
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
+// Get a random index from an array //used in createRandomPoster function
+function getRandomIndex(array) { //(array) is the array that we want to get a random index from - for example, images, titles, or quotes
+  const randomIndex = Math.floor(Math.random() * array.length);
+  console.log(`Array length: ${array.length}, Random index selected: ${randomIndex}`);
+  return randomIndex;
+  // Math.floor rounds down to the nearest whole number
+  //(Math.random() * array.length) generates a random number between 0 and the length of the array
 }
 
 // Create a new poster object
@@ -212,40 +219,51 @@ function createPoster(imageURL, title, quote) {
 
 // Display a random poster on page load or when the "Show Another Random Poster" button is clicked
 function displayRandomPoster() {  
-  const randomPoster = createRandomPoster(); 
-  updatePoster(randomPoster); 
+  const randomPoster = createRandomPoster();  //creates a random poster by using the createRandomPoster function
+  updatePoster(randomPoster); //updates DOM with new random poster
 }
 
 // Create a random poster using random elements from the images, titles, and quotes arrays
-function createRandomPoster() { 
+function createRandomPoster() { //creates a random image by using the getRandomIndex function
   const randomImage = images[getRandomIndex(images)]; 
-  const randomTitle = titles[getRandomIndex(titles)];
+  //creates a random title by using the getRandomIndex function
+  //images is an array of image URLs
+  //getRandomIndex in the function
+  //(images) is the array that we want to get a random index from
+  const randomTitle = titles[getRandomIndex(titles)]; 
   const randomQuote = quotes[getRandomIndex(quotes)];
-  return createPoster(randomImage, randomTitle, randomQuote);
+  return createPoster(randomImage, randomTitle, randomQuote); //returns a new poster object with the random image, title, and quote
 }
 
 // Update the DOM with the new poster's image, title, and quote
-function updatePoster(poster) { 
-  currentPoster = poster; 
-  posterImage.src = currentPoster.imageURL; 
-  posterTitle.innerText = currentPoster.title; 
-  posterQuote.innerText = currentPoster.quote; 
+function updatePoster(poster) { //poster is used here as a parameter
+  currentPoster = poster; //saves the new poster as the current poster//effectively updates the reference to the current poster
+  posterImage.src = currentPoster.imageURL;  //posterImage is a query selector variable that selects the image element in the HTML
+  posterTitle.innerText = currentPoster.title; //
+  posterQuote.innerText = currentPoster.quote; //
 }
 
 // Toggle visibility of elements
-function toggleVisibility(showElement, hideElements) {
-  showElement.classList.remove('hidden'); // Show the specified element
-  hideElements.forEach(element => element.classList.add('hidden')); // Hide the specified elements
+function toggleVisibility(showElement, hideElements) { //arguments of the function are showElement and hideElements
+  showElement.classList.remove('hidden');
+  //showElement is the element that we want to show
+  //.classList will return a list of classes that are on the element (classes from the css file)
+  //.remove will remove the class of 'hidden' from the showElement
+  hideElements.forEach(element => element.classList.add('hidden')); 
+  //hide elements is an array of elements that we want to hide
+  //forEach is a method that will iterate over each element in the array
+  //element is the current element in the array
+  //.classList will return a list of classes that are on the element
+  //.add will add the class of 'hidden' to the element
   console.log('Toggled visibility:', showElement, hideElements); // Log the visibility toggle
 }
 
 // Create a custom poster with user input
 function createCustomPoster(event) {
-  event.preventDefault(); // Prevent the form from submitting
-  // Use the values from the inputs to create a new, unique poster object
+  event.preventDefault(); // event.preventDefault() prevents the default behavior of the form submission
   const customPoster = createPoster(posterImageUrlInput.value, posterTitleInput.value, posterQuoteInput.value);
-  // Save the new poster as the current poster
-  currentPoster = customPoster;
+  //builds a const named customPoster that uses the createPoster function to create a new poster object
+  currentPoster = customPoster; //currentPoster is global variable because it is declared outside of the function
   // Save the user input data into the respective arrays
   saveUserInputData(posterImageUrlInput.value, posterTitleInput.value, posterQuoteInput.value);
   // Update the DOM with the new poster and show the main poster section
@@ -254,7 +272,7 @@ function createCustomPoster(event) {
 }
 
 // Save user input data into the respective arrays
-function saveUserInputData(imageURL, title, quote) {
+function saveUserInputData(imageURL, title, quote) { //used to update the arrays with the user input data
   images.push(imageURL);
   titles.push(title);
   quotes.push(quote);
@@ -263,7 +281,7 @@ function saveUserInputData(imageURL, title, quote) {
 // Save the current poster to the savedPosters array
 function saveCurrentPoster() {
   if (!savedPosters.includes(currentPoster)) { // Check if the current poster is not already in the savedPosters array
-    savedPosters.push(currentPoster);
+    savedPosters.push(currentPoster); // Add the current poster to the savedPosters array
     console.log('Poster saved:', currentPoster); // Log the saved poster
     console.log('Saved Posters Array:', savedPosters); // Log the savedPosters array
   }
@@ -271,12 +289,12 @@ function saveCurrentPoster() {
 
 // Display saved posters in the saved posters section
 function displaySavedPosters() {
-  const savedPostersGrid = document.querySelector('.saved-posters-grid');
+  const savedPostersGrid = document.querySelector('.saved-posters-grid'); // .saved-posters-grid is a query selector variable that selects the saved posters grid in the HTML
   savedPostersGrid.innerHTML = ''; // Clear the grid
-  savedPosters.forEach(poster => {
-    const posterElement = document.createElement('div');
-    posterElement.classList.add('mini-poster');
-    posterElement.innerHTML = `
+  savedPosters.forEach(poster => { // Iterate over each poster in the savedPosters array
+    const posterElement = document.createElement('div'); // Create a new div element for the poster
+    posterElement.classList.add('mini-poster'); // Add the 'mini-poster' class to the poster element
+    posterElement.innerHTML = ` 
       <img src="${poster.imageURL}" alt="Poster Image">
       <h2>${poster.title}</h2>
       <h4>${poster.quote}</h4>
@@ -316,8 +334,8 @@ function deleteUnmotivationalPoster(event, posterId) {
 }
 
 // Clear the input fields in the form
-function clearFormInputs() {
-  posterImageUrlInput.value = '';
+function clearFormInputs() { //function to clear the input fields in the form after the user has submitted the form 
+  posterImageUrlInput.value = ''; //clears the input field for the image URL
   posterTitleInput.value = '';
   posterQuoteInput.value = '';
 }
