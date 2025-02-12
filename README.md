@@ -20,7 +20,7 @@ Built a webpage using html css and javascript that allows users to generate rand
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
 
-Worked on it for about 4 days. But the bulk of the work was done in a two day period and i spent the rest trying to refactor and clean up the code and ensuring functionality. I am currently in module 2 of the Turing program.
+Worked on it for about four days. But the bulk of the work was done in a two day period and I spent the rest trying to refactor and clean up the code and ensuring functionality. I am currently in module 2 of the Turing program.
 
 ### Contributors:
 [//]: <> (Who worked on this application? Link to your GitHub. Consider also providing LinkedIn link)
