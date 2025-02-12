@@ -18,7 +18,8 @@ input {
   padding: 10px 20px;
 }
 
-button {
+button { 
+  /* global rules  */
   background: black;
   border: none;
   border-radius: 10px;
