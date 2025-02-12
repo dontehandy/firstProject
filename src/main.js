@@ -74,7 +74,7 @@ const quotes = [
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
 let savedPosters = [];
-let currentPoster;
+let currentPoster; //global variable to store the current poster
 let unmotivationalPosters = [
   {
     id: Date.now(),
@@ -260,11 +260,10 @@ function toggleVisibility(showElement, hideElements) { //arguments of the functi
 
 // Create a custom poster with user input
 function createCustomPoster(event) {
-  event.preventDefault(); // Prevent the form from submitting
-  // Use the values from the inputs to create a new, unique poster object
+  event.preventDefault(); // event.preventDefault() prevents the default behavior of the form submission
   const customPoster = createPoster(posterImageUrlInput.value, posterTitleInput.value, posterQuoteInput.value);
-  // Save the new poster as the current poster
-  currentPoster = customPoster;
+  //builds a const named customPoster that uses the createPoster function to create a new poster object
+  currentPoster = customPoster; //currentPoster is global variable because it is declared outside of the function
   // Save the user input data into the respective arrays
   saveUserInputData(posterImageUrlInput.value, posterTitleInput.value, posterQuoteInput.value);
   // Update the DOM with the new poster and show the main poster section
@@ -273,7 +272,7 @@ function createCustomPoster(event) {
 }
 
 // Save user input data into the respective arrays
-function saveUserInputData(imageURL, title, quote) {
+function saveUserInputData(imageURL, title, quote) { //used to update the arrays with the user input data
   images.push(imageURL);
   titles.push(title);
   quotes.push(quote);

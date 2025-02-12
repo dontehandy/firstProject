@@ -57,17 +57,29 @@ In summary: Be able to switch between the three views (main poster, form, and sa
 
 #### Iteration 2:
 
-1. First, use the values from the inputs to create a new, unique poster object and save it as the value of the currentPoster global variable (part of your data model)
-   - This is achieved by the `createCustomPoster` function, which uses the values from the input fields to create a new poster object using the `createPoster` function and saves it as the value of the `currentPoster` global variable.
+Directives:
 
-2. Save the submitted data into the respective arrays (image URL into the images array, etc - all part of your data model) so that future random posters can use the user-created data
-   - This is achieved within the `createCustomPoster` function by pushing the user input values into the respective arrays (`images`, `titles`, `quotes`).
+On the new poster form view, users should be able to fill out the three input fields and then hit the Show My Poster button
 
-3. Change back to the main poster view (hiding the form view again)
-   - This is achieved by calling the `toggleVisibility` function within the `createCustomPoster` function to show the main poster section and hide the form section.
+- This is achieved by adding an event listener to the "Show My Poster" button that calls the `createCustomPoster` function when clicked.
 
-4. Use the new, unique poster object (which should be saved in the currentPoster variable - part of your data model) to display the newly created poster image, title, and quote in the main view on the DOM
-   - This is achieved by calling the `updatePoster` function within the `createCustomPoster` function to update the DOM with the new poster's image, title, and quote.
+When the Show My Poster button is clicked, several things will happen:
+
+First, use the values from the inputs to create a new, unique poster object and save it as the value of the currentPoster global variable (part of your data model)
+
+- This is achieved by the `createCustomPoster` function, which uses the values from the input fields to create a new poster object using the `createPoster` function and saves it as the value of the `currentPoster` global variable.
+
+Save the submitted data into the respective arrays (image URL into the images array, etc - all part of your data model) so that future random posters can use the user-created data
+
+- This is achieved within the `createCustomPoster` function by pushing the user input values into the respective arrays (`images`, `titles`, `quotes`).
+
+Change back to the main poster view (hiding the form view again)
+
+- This is achieved by calling the `toggleVisibility` function within the `createCustomPoster` function to show the main poster section and hide the form section.
+
+Use the new, unique poster object (which should be saved in the currentPoster variable - part of your data model) to display the newly created poster image, title, and quote in the main view on the DOM
+
+- This is achieved by calling the `updatePoster` function within the `createCustomPoster` function to update the DOM with the new poster's image, title, and quote.
 
 #### Iteration 3:
 
