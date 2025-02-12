@@ -51,4 +51,4 @@ Wins: exposure to event listeners and how to use them to create interactivity on
 
 Wins: global variables and how to use them to store data that can be accessed by multiple functions.
 
-Challenges: Getting the unmotivational posters to display properly but after using a console.log to see what was being returned from the fetch request i was able to see that the data was being returned as an object and not an array. I was able to use Object.values() to convert the object to an array and then display the posters properly.
+Challenges: Getting the unmotivational posters to display properly but after using a console.log to see what was being returned from the fetch request. I was able to see that the data was being returned as an object and not an array. I was able to use Object.values() to convert the object to an array and then display the posters properly.
