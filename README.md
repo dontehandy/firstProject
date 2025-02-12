@@ -99,7 +99,7 @@ When a user clicks the “Show Saved Posters” button, we should see the saved 
 
 All the posters in the savedPosters array should be displayed as little mini posters in the saved posters grid section (again, no duplicates)
 
-*- This is achieved by the `displaySavedPosters` function, which clears the saved posters grid and then appends each poster in the `savedPosters` array as a mini poster.
+- This is achieved by the `displaySavedPosters` function, which clears the saved posters grid and then appends each poster in the `savedPosters` array as a mini poster.
 
 Ensure styling, sizes and layouts of the mini posters in the Saved Posters view match the comp photo of that Saved Posters view that is shown in Iteration 1
 
@@ -107,70 +107,82 @@ Ensure styling, sizes and layouts of the mini posters in the Saved Posters view 
 
 #### Iteration 4:
 
-1. On the main view, a user should see a newly added “Unmotivational Posters” button located after the existing buttons.
-   - This is achieved by adding a new button element with the class `show-unmotivational` in the HTML file after the existing buttons in the main view..
+Directives:
 
-2. When a user clicks the “Unmotivational Posters” button, we should see a newly created Unmotivational Posters HTML section with:
-   - a title of “Unmotivational Posters”: this is achieved by adding an h2 element with the text “Unmotivational Posters” to the Unmotivational Posters section.
-   - a div that will eventually hold the displayed posters (not actually a visible part of the page until posters are displayed): this is achieved by adding a div element with the class `unmotivational-posters-grid` to the Unmotivational Posters section.
-   - a “Back to Main” button: this is achieved by adding a button element with the class `back-to-main` and the text “Back to Main” to the Unmotivational Posters section.
-   - The main poster view should be hidden when viewing the Unmotivational Posters view: this is achieved by adding the class `hidden` to the main poster section when the Unmotivational Posters section is shown.
+On the main view, a user should see a newly added “Unmotivational Posters” button located after the existing buttons.
 
-3. When a user clicks the “Back to Main” button, we should see the main poster view and the unmotivational posters view should be hidden.
-   - This is achieved by adding an event listener to the "Back to Main" button that calls the `toggleVisibility` function to show the main poster section and hide the Unmotivational Posters section.
+- This is achieved by adding a new button element with the class `show-unmotivational` in the HTML file after the existing buttons in the main view.
 
-4. Copy/paste the dataset into your main.js file after the existing arrays of images, titles and quotes.
-    - This is achieved by copying the dataset from the *database* Iteration 4 drop down and pasting it into the `main.js` file after the existing arrays of images, titles, and quotes.
+When a user clicks the “Unmotivational Posters” button, we should see a newly created Unmotivational Posters HTML section with:
 
-5. Create a cleanData() function to go through each piece of this data and make it match the format we’ve been using for our poster data.
-    - This was accomplished by using the `map` iterator method to transform each unmotivational poster into the format used for our poster data. The `createPoster` function was utilized to ensure consistency in the poster object structure.
+a title of “Unmotivational Posters”
 
--Hint - use the existing createPoster() function to help you accomplish this.
--Hint - you can reach for a for loop or an iterator method here - several options will work - it’s your choice!
+- This is achieved by adding an h2 element with the text “Unmotivational Posters” to the Unmotivational Posters section.
 
-6. When a user visits the Unmotivational Posters view, we should see all 15 unmotivational posters displayed immediately. Use the cleaned data for this.
-   - This was accomplished by calling the `displayUnmotivationalPosters` function after cleaning the data with the `cleanData` function when the "Unmotivational Posters" button is clicked.
+a div that will eventually hold the displayed posters (not actually a visible part of the page until posters are displayed)
+
+- This is achieved by adding a div element with the class `unmotivational-posters-grid` to the Unmotivational Posters section.
+
+a “Back to Main” button
+
+- This is achieved by adding a button element with the class `back-to-main` and the text “Back to Main” to the Unmotivational Posters section.
+
+The main poster view should be hidden when viewing the Unmotivational Posters view
+
+- This is achieved by adding the class `hidden` to the main poster section when the Unmotivational Posters section is shown.
+
+When a user clicks the “Back to Main” button, we should see the main poster view and the unmotivational posters view should be hidden.
+
+- This is achieved by adding an event listener to the "Back to Main" button that calls the `toggleVisibility` function to show the main poster section and hide the Unmotivational Posters section.
+
+Copy/paste the dataset into your main.js file after the existing arrays of images, titles and quotes.
+
+- This is achieved by copying the dataset from the *database* Iteration 4 drop down and pasting it into the `main.js` file after the existing arrays of images, titles, and quotes.
+
+Create a cleanData() function to go through each piece of this data and make it match the format we’ve been using for our poster data.
+
+- This was accomplished by using the `map` iterator method to transform each unmotivational poster into the format used for our poster data. The `createPoster` function was utilized to ensure consistency in the poster object structure.
+
+When a user visits the Unmotivational Posters view, we should see all 15 unmotivational posters displayed immediately. Use the cleaned data for this.
+
+- This was accomplished by calling the `displayUnmotivationalPosters` function after cleaning the data with the `cleanData` function when the "Unmotivational Posters" button is clicked.
 
 #### Iteration 5:
 
+Directives:
 
-**Add functionality so that users will be able to delete an unmotivational poster by double clicking on it.**
+Add functionality so that users will be able to delete an unmotivational poster by double clicking on it.
 
-1. From the unmotivational posters view, if a user double clicks a poster, it will be deleted
+From the unmotivational posters view, if a user double clicks a poster, it will be deleted
 
-   - This was achieved by adding an event listener to each poster element in the `displayUnmotivationalPosters` function that calls the `deleteUnmotivationalPoster` function when the poster is double-clicked.
+- This was achieved by adding an event listener to each poster element in the `displayUnmotivationalPosters` function that calls the `deleteUnmotivationalPoster` function when the poster is double-clicked.
 
-2. Users should be able to double click anywhere on the poster to delete it - on the image, text or background.
+Users should be able to double click anywhere on the poster to delete it - on the image, text or background.
 
-   - This was achieved by adding the event listener to the entire poster element, ensuring that any part of the poster can be double-clicked to trigger the deletion.
+- This was achieved by adding the event listener to the entire poster element, ensuring that any part of the poster can be double-clicked to trigger the deletion.
 
-3. HTML onclick attributes should not be used in any HTML code - all functionality should be through JavaScript.
+HTML onclick attributes should not be used in any HTML code - all functionality should be through JavaScript.
 
-   - This was achieved by using JavaScript to add event listeners to the poster elements instead of using HTML `onclick` attributes.
+- This was achieved by using JavaScript to add event listeners to the poster elements instead of using HTML `onclick` attributes.
 
-4. The poster should be removed from your cleaned unmotivational posters data set and should no longer be displayed on the DOM.
+The poster should be removed from your cleaned unmotivational posters data set and should no longer be displayed on the DOM.
 
-   - This was achieved by filtering out the deleted poster from the `unmotivationalPosters` array in the `deleteUnmotivationalPoster` function and then calling the `displayUnmotivationalPosters` function to update the DOM.
+- This was achieved by filtering out the deleted poster from the `unmotivationalPosters` array in the `deleteUnmotivationalPoster` function and then calling the `displayUnmotivationalPosters` function to update the DOM.
 
-5. If the user navigates away from the Unmotivational Posters view after deleting some posters, those posters should still be gone when they navigate back to that view.
-
-   - This was achieved by ensuring that the `unmotivationalPosters` array is updated and maintained in its current state, even when the user navigates away from and back to the Unmotivational Posters view.
-
+If the user navigates away from the Unmotivational Posters view after deleting some posters, those posters should still be gone when they navigate back to
 
 #### Iteration 6:
 
+Directives:
 
-1. Styling UPDATES:
+Using CSS, make the styling/format of the new “Unmotivational Posters” button (on the main page) and the “Back to Main” button (on the Unmotivational Posters page) match the other buttons throughout the app.
 
-   -Using CSS, make the styling/format of the new “Unmotivational Posters” button (on the main page) and the “Back to Main” button (on the Unmotivational Posters page) match the other buttons throughout the app.
+- This was achieved by applying the same CSS classes used for the other buttons to the new “Unmotivational Posters” and “Back to Main” buttons, ensuring consistent styling and format.
 
-      - This was achieved by applying the same styles used for other buttons in the app to the new “Unmotivational Posters” button and the “Back to Main” button, ensuring consistency in appearance.
+Using CSS flexbox (not grid), control the layout of the unmotivational posters to match the comp provided here. Note: the number of posters you see in each row will flex based on the width of the screen, thats a good thing!
 
-   -Using CSS flexbox (not grid), control the layout of the unmotivational posters to match the comp provided here. Note: the number of posters you see in each row will flex based on the width of the screen, thats a good thing!
+- This was achieved by applying CSS flexbox properties to the `unmotivational-posters-grid` class, ensuring that the layout of the unmotivational posters matches the provided comp and adjusts based on the screen width.
 
-      - This was achieved by using CSS flexbox to create a responsive layout for the unmotivational posters, allowing the number of posters per row to adjust based on the screen width.
+Using CSS, make the style and size of the unmotivational posters match the comp provided here. You’ll notice they should look slightly different than the saved posters.
 
-   -Using CSS, make the style and size of the unmotivational posters match the comp provided here. You’ll notice they should look slightly different than the saved posters.
-
-      - This was achieved by updating the CSS to apply grey padding, rounded edges, and black text color for the unmotivational posters, differentiating them from the saved posters.
-
+- This was achieved by applying specific CSS styles to the unmotivational posters, ensuring that their style and size match the provided comp and are distinct from the saved posters.
