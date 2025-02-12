@@ -83,20 +83,27 @@ Use the new, unique poster object (which should be saved in the currentPoster va
 
 #### Iteration 3:
 
-1. When a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
-   - This is achieved by the `saveCurrentPoster` function, which checks if the `currentPoster` is already in the `savedPosters` array before adding it.
+Directives:
 
-2. If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
-   - This is ensured by using the `includes` method to check if the `currentPoster` is already in the `savedPosters` array before adding it.
+When a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
 
-3. When a user clicks the “Show Saved Posters” button, we should see the saved posters section
-   - This is achieved by adding an event listener to the "Show Saved Posters" button that calls the `displaySavedPosters` function and the `toggleVisibility` function to show the saved posters section and hide the main poster section.
+- This is achieved by the `saveCurrentPoster` function, which checks if the `currentPoster` is already in the `savedPosters` array before adding it.
 
-4. All the posters in the savedPosters array should be displayed as little mini posters in the saved posters grid section (again, no duplicates)
-   - This is achieved by the `displaySavedPosters` function, which clears the saved posters grid and then appends each poster in the `savedPosters` array as a mini poster.
+If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
 
-5. Ensure styling, sizes and layouts of the mini posters in the Saved Posters view match the comp photo of that Saved Posters view that is shown in Iteration 1
-   - This is achieved by applying the appropriate CSS styles to the mini posters and the saved posters grid.
+- This is ensured by using the `includes` method to check if the `currentPoster` is already in the `savedPosters` array before adding it.
+
+When a user clicks the “Show Saved Posters” button, we should see the saved posters section
+
+- This is achieved by adding an event listener to the "Show Saved Posters" button that calls the `displaySavedPosters` function and the `toggleVisibility` function to show the saved posters section and hide the main poster section.
+
+All the posters in the savedPosters array should be displayed as little mini posters in the saved posters grid section (again, no duplicates)
+
+- This is achieved by the `displaySavedPosters` function, which clears the saved posters grid and then appends each poster in the `savedPosters` array as a mini poster.
+
+Ensure styling, sizes and layouts of the mini posters in the Saved Posters view match the comp photo of that Saved Posters view that is shown in Iteration 1
+
+- This is achieved by applying the appropriate CSS styles to the mini posters and the saved posters grid.
 
 #### Iteration 4:
 
