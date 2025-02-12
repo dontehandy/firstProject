@@ -30,7 +30,7 @@ button:hover {
 }
 
 .hidden {
-  display: none!important;
+  display: none!important; /* //will override any other display property */
 }
 
 /* ~~~~~ MAIN POSTER SECTION ~~~~~ */

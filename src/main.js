@@ -172,7 +172,7 @@ let unmotivationalPosters = [
 window.addEventListener('load', displayRandomPoster); // Display a random poster on page load
 showRandomPosterButton.addEventListener('click', displayRandomPoster); 
 makeYourOwnPosterButton.addEventListener('click', () => {
-  clearFormInputs();
+  clearFormInputs(); // function to clear the input fields in the form
   toggleVisibility(posterFormSection, [mainPosterSection, savedPostersSection, unmotivationalPostersSection]);
 });
 showSavedPostersButton.addEventListener('click', () => {
@@ -182,6 +182,9 @@ showSavedPostersButton.addEventListener('click', () => {
 saveThisPosterButton.addEventListener('click', saveCurrentPoster);
 showMyPosterButton.addEventListener('click', createCustomPoster);
 backToMainButtons.forEach(button => button.addEventListener('click', () => {
+  //used forEach to iterate over each button in the array
+  //added an event listener to each button in the array
+  //when the button is clicked, the main poster section will be shown and the other sections will be hidden
   toggleVisibility(mainPosterSection, [posterFormSection, savedPostersSection, unmotivationalPostersSection]);
 }));
 nevermindTakeMeBackButton.addEventListener('click', () => {
@@ -241,9 +244,17 @@ function updatePoster(poster) { //poster is used here as a parameter
 }
 
 // Toggle visibility of elements
-function toggleVisibility(showElement, hideElements) {
-  showElement.classList.remove('hidden'); // Show the specified element
-  hideElements.forEach(element => element.classList.add('hidden')); // Hide the specified elements
+function toggleVisibility(showElement, hideElements) { //arguments of the function are showElement and hideElements
+  showElement.classList.remove('hidden');
+  //showElement is the element that we want to show
+  //.classList will return a list of classes that are on the element (classes from the css file)
+  //.remove will remove the class of 'hidden' from the showElement
+  hideElements.forEach(element => element.classList.add('hidden')); 
+  //hide elements is an array of elements that we want to hide
+  //forEach is a method that will iterate over each element in the array
+  //element is the current element in the array
+  //.classList will return a list of classes that are on the element
+  //.add will add the class of 'hidden' to the element
   console.log('Toggled visibility:', showElement, hideElements); // Log the visibility toggle
 }
 
@@ -324,8 +335,8 @@ function deleteUnmotivationalPoster(event, posterId) {
 }
 
 // Clear the input fields in the form
-function clearFormInputs() {
-  posterImageUrlInput.value = '';
+function clearFormInputs() { //function to clear the input fields in the form after the user has submitted the form 
+  posterImageUrlInput.value = ''; //clears the input field for the image URL
   posterTitleInput.value = '';
   posterQuoteInput.value = '';
 }
