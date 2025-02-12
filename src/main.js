@@ -1,7 +1,7 @@
 // Query selector variables
-const posterImage = document.querySelector('.poster-img'); 
-const posterTitle = document.querySelector('.poster-title');
-const posterQuote = document.querySelector('.poster-quote');
+const posterImage = document.querySelector('.poster-img'); // posterImage is a query selector variable that selects the image element in the HTML
+const posterTitle = document.querySelector('.poster-title'); // posterTitle is a query selector variable that selects the title element in the HTML
+const posterQuote = document.querySelector('.poster-quote'); // posterQuote is a query selector variable that selects the quote element in the HTML
 const showRandomPosterButton = document.querySelector('.show-random');
 const makeYourOwnPosterButton = document.querySelector('.show-form');
 const showSavedPostersButton = document.querySelector('.show-saved');
@@ -169,7 +169,7 @@ let unmotivationalPosters = [
 ];
 
 // Event listeners
-window.addEventListener('load', displayRandomPoster); 
+window.addEventListener('load', displayRandomPoster); // Display a random poster on page load
 showRandomPosterButton.addEventListener('click', displayRandomPoster); 
 makeYourOwnPosterButton.addEventListener('click', () => {
   clearFormInputs();
@@ -195,9 +195,13 @@ showUnmotivationalButton.addEventListener('click', () => {
 
 // Functions
 
-// Get a random index from an array
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
+// Get a random index from an array //used in createRandomPoster function
+function getRandomIndex(array) { //(array) is the array that we want to get a random index from - for example, images, titles, or quotes
+  const randomIndex = Math.floor(Math.random() * array.length);
+  console.log(`Array length: ${array.length}, Random index selected: ${randomIndex}`);
+  return randomIndex;
+  // Math.floor rounds down to the nearest whole number
+  //(Math.random() * array.length) generates a random number between 0 and the length of the array
 }
 
 // Create a new poster object
@@ -212,24 +216,28 @@ function createPoster(imageURL, title, quote) {
 
 // Display a random poster on page load or when the "Show Another Random Poster" button is clicked
 function displayRandomPoster() {  
-  const randomPoster = createRandomPoster(); 
-  updatePoster(randomPoster); 
+  const randomPoster = createRandomPoster();  //creates a random poster by using the createRandomPoster function
+  updatePoster(randomPoster); //updates DOM with new random poster
 }
 
 // Create a random poster using random elements from the images, titles, and quotes arrays
-function createRandomPoster() { 
+function createRandomPoster() { //creates a random image by using the getRandomIndex function
   const randomImage = images[getRandomIndex(images)]; 
-  const randomTitle = titles[getRandomIndex(titles)];
+  //creates a random title by using the getRandomIndex function
+  //images is an array of image URLs
+  //getRandomIndex in the function
+  //(images) is the array that we want to get a random index from
+  const randomTitle = titles[getRandomIndex(titles)]; 
   const randomQuote = quotes[getRandomIndex(quotes)];
-  return createPoster(randomImage, randomTitle, randomQuote);
+  return createPoster(randomImage, randomTitle, randomQuote); //returns a new poster object with the random image, title, and quote
 }
 
 // Update the DOM with the new poster's image, title, and quote
-function updatePoster(poster) { 
-  currentPoster = poster; 
-  posterImage.src = currentPoster.imageURL; 
-  posterTitle.innerText = currentPoster.title; 
-  posterQuote.innerText = currentPoster.quote; 
+function updatePoster(poster) { //poster is used here as a parameter
+  currentPoster = poster; //saves the new poster as the current poster//effectively updates the reference to the current poster
+  posterImage.src = currentPoster.imageURL;  //posterImage is a query selector variable that selects the image element in the HTML
+  posterTitle.innerText = currentPoster.title; //
+  posterQuote.innerText = currentPoster.quote; //
 }
 
 // Toggle visibility of elements
