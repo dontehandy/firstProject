@@ -109,7 +109,7 @@ button:hover {
   padding: 40px;
 }
 
-.saved-posters-grid {
+.saved-posters-grid { /* //used in displaysavedposter function  */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

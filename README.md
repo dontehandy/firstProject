@@ -99,7 +99,7 @@ When a user clicks the “Show Saved Posters” button, we should see the saved 
 
 All the posters in the savedPosters array should be displayed as little mini posters in the saved posters grid section (again, no duplicates)
 
-- This is achieved by the `displaySavedPosters` function, which clears the saved posters grid and then appends each poster in the `savedPosters` array as a mini poster.
+*- This is achieved by the `displaySavedPosters` function, which clears the saved posters grid and then appends each poster in the `savedPosters` array as a mini poster.
 
 Ensure styling, sizes and layouts of the mini posters in the Saved Posters view match the comp photo of that Saved Posters view that is shown in Iteration 1
 

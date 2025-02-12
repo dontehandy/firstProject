@@ -73,7 +73,7 @@ const quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
-let savedPosters = [];
+let savedPosters = []; //array to store saved posters
 let currentPoster; //global variable to store the current poster
 let unmotivationalPosters = [
   {
@@ -281,7 +281,7 @@ function saveUserInputData(imageURL, title, quote) { //used to update the arrays
 // Save the current poster to the savedPosters array
 function saveCurrentPoster() {
   if (!savedPosters.includes(currentPoster)) { // Check if the current poster is not already in the savedPosters array
-    savedPosters.push(currentPoster);
+    savedPosters.push(currentPoster); // Add the current poster to the savedPosters array
     console.log('Poster saved:', currentPoster); // Log the saved poster
     console.log('Saved Posters Array:', savedPosters); // Log the savedPosters array
   }
@@ -289,12 +289,12 @@ function saveCurrentPoster() {
 
 // Display saved posters in the saved posters section
 function displaySavedPosters() {
-  const savedPostersGrid = document.querySelector('.saved-posters-grid');
+  const savedPostersGrid = document.querySelector('.saved-posters-grid'); // .saved-posters-grid is a query selector variable that selects the saved posters grid in the HTML
   savedPostersGrid.innerHTML = ''; // Clear the grid
-  savedPosters.forEach(poster => {
-    const posterElement = document.createElement('div');
-    posterElement.classList.add('mini-poster');
-    posterElement.innerHTML = `
+  savedPosters.forEach(poster => { // Iterate over each poster in the savedPosters array
+    const posterElement = document.createElement('div'); // Create a new div element for the poster
+    posterElement.classList.add('mini-poster'); // Add the 'mini-poster' class to the poster element
+    posterElement.innerHTML = ` 
       <img src="${poster.imageURL}" alt="Poster Image">
       <h2>${poster.title}</h2>
       <h4>${poster.quote}</h4>
